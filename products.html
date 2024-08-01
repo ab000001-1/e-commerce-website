@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - E-Books4U</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Light gray background */
+            color: #333; /* Dark gray text */
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            flex: 1; /* Allow body to expand */
+        }
+
+        header {
+            background-color: #6c757d; /* Subtle gray */
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000; /* Ensure header stays on top */
+        }
+
+        header img {
+            height: 50px; /* Adjust as needed */
+            margin-right: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        nav {
+            margin: 0;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #17a2b8; /* Teal */
+        }
+
+        main {
+            flex: 1;
+            padding: 80px 20px 20px; /* Added padding-top to account for fixed header */
+            text-align: center;
+        }
+
+        main h2 {
+            color: #6c757d; /* Subtle gray */
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .product {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            width: 200px;
+            text-align: left;
+            transition: transform 0.3s;
+        }
+
+        .product:hover {
+            transform: scale(1.05); /* Slight zoom effect */
+        }
+
+        .product img {
+            width: 100%; /* Make image fill the container */
+            height: auto;
+            border-radius: 5px; /* Rounded corners for the image */
+            margin-bottom: 10px; /* Space between image and text */
+        }
+
+        .product h3 {
+            margin: 0 0 10px;
+        }
+
+        .product button {
+            background-color: #17a2b8; /* Teal */
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .product button:hover {
+            background-color: #138496; /* Darker teal */
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 20px;
+            background-color: #6c757d; /* Subtle gray */
+            color: #fff;
+            width: 100%;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="e-books4u-high-resolution-logo-black-transparent.png" alt="E-books4U Logo">
+        <h1>Our Products</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="cart.html" id="cart-link">Cart (0)</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Product Features For This Week</h2>
+        <div class="product">
+            <img src="IMG-2680.JPG" alt="Product 1 Image">
+            <h3>Product 1</h3>
+            <p>Price: $10.00</p>
+            <button onclick="addToCart('Product 1', 10)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="IMG-2679.PNG" alt="Product 2 Image">
+            <h3>Product 2</h3>
+            <p>Price: $20.00</p>
+            <button onclick="addToCart('Product 2', 20)">Add to Cart</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 E-Books4U</p>
+    </footer>
+    <script>
+        function updateCartCount() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const cartCount = cartItems.length;
+            document.getElementById('cart-link').textContent = `Cart (${cartCount})`;
+        }
+
+        function addToCart(productName, price) {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const existingItem = cartItems.find(item => item.name === productName);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cartItems.push({ name: productName, price: price, quantity: 1 });
+            }
+
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            updateCartCount();
+        }
+
+        updateCartCount();
+    </script>
+</body>
+</html>

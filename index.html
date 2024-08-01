@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - E-Books4U</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Light gray background */
+            color: #333; /* Dark gray text */
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #6c757d; /* Subtle gray */
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000; /* Ensure header stays on top */
+        }
+
+        header img {
+            height: 50px; 
+            margin-right: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        nav {
+            margin: 0;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #17a2b8; /* Teal */
+        }
+
+        main {
+            flex: 1; 
+            padding: 80px 20px; /* Added padding-top to account for fixed header */
+            text-align: center;
+        }
+
+        main h2 {
+            color: #6c757d; /* Subtle gray */
+            margin-bottom: 20px;
+            font-size: 2rem;
+            transition: color 0.3s;
+        }
+
+        main p {
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #17a2b8; /* Teal */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .button:hover {
+            background-color: #138496; /* Darker teal */
+            transform: scale(1.05); /* Slight zoom effect */
+        }
+       
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+            transition: transform 0.3s;
+        }
+
+        .form-container h2 {
+            color: #17a2b8; /* Teal */
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container label {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-container input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-container input:focus {
+            border-color: #17a2b8; /* Teal */
+            outline: none;
+        }
+
+        .form-container button {
+            padding: 10px;
+            background-color: #17a2b8; /* Teal */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #138496; /* Darker teal */
+            transform: scale(1.05); /* Slight zoom effect */
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 20px;
+            background-color: #6c757d; /* Subtle gray */
+            color: #fff;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="e-books4u-high-resolution-logo-black-transparent.png" alt="E-commerce Logo">
+        <h1>E-Books4U</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="cart.html" id="cart-link">Cart (0)</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Welcome to The One Stop Destination For E-Books!</h2>
+        <p>Discover the best products at the best prices.</p>
+        <a href="products.html" class="button">Shop Now</a>
+        <div class="promo-image-container">      
+  <img src="IMG-2682.PNG" alt="Promotional Image" class="promo-image">
+
+        <!-- Authentication Forms -->
+        <div class="form-container">
+            <h2>Login</h2>
+            <form action="https://formspree.io/f/xldrblnb" method="POST">
+                <label>
+                    Username:
+                    <input type="text" name="username" required>
+                </label>
+                <label>
+                    Password:
+                    <input type="password" name="password" required>
+                </label>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <div class="form-container" style="margin-top: 20px;">
+            <h2>Register</h2>
+            <form action="https://formspree.io/f/xldrblnb" method="POST">
+                <label>
+                    Username:
+                    <input type="text" name="username" required>
+                </label>
+                <label>
+                    Password:
+                    <input type="password" name="password" required>
+                </label>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 E-Books4U</p>
+    </footer>
+    <script>
+        // Function to update cart count
+        function updateCartCount() {
+            const cartCount = localStorage.getItem('cartCount') || 0;
+            document.getElementById('cart-link').textContent = `Cart (${cartCount})`;
+        }
+
+        // Initialize cart count on page load
+        updateCartCount();
+    </script>
+</body>
+</html>
